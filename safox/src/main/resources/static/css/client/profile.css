@@ -1,0 +1,39 @@
+
+.list-links {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    margin-bottom: 15px !important;
+}
+
+.list-links i{
+    color: #ffd500
+}
+
+#list-tab a{
+    background-color: transparent !important;
+    border: none !important;
+    width: fit-content !important;
+    font-size: 19px !important;
+    font-weight: 500 !important;
+}
+
+#list-tab a.active{
+    color:var(--main-color) !important;
+}
+#list-tab a.reservations-link{
+    position: relative !important;
+    top:2px !important
+}
+.update{
+    background-color: var(--main-color) !important;
+    color:white !important;
+    
+}
+
+label{
+    font-size: 13px !important;
+    position: relative;
+    top:7px;
+    color:grey
+}

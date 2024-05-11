@@ -1,0 +1,28 @@
+<form th:fragment="general_settings" th:object="${generalSettings}" action="/admin/settings/general-settings/update" method="post" class="col-12 col-lg-8">
+    <div class="mb-3">
+        <label class="form-label" for="contact_email">Contact Email</label>
+        <input type="email" class="form-control shadow-none" th:field="*{contact_email}"required placeholder="contact email" id="contact_email">
+        <p th:if="${#fields.hasErrors('contact_email')}" th:text="${#fields.errors('contact_email')[0]}" class="text-danger"></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="contact_phone">Contact Phone</label>
+        <input type="text" class="form-control shadow-none" th:field="*{contact_phone}" required placeholder="contact phone" id="contact_phone">
+        <p th:if="${#fields.hasErrors('contact_phone')}" th:text="${#fields.errors('contact_phone')[0]}" class="text-danger"></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="insurance_price">Insurance Price($)</label>
+        <input type="text" class="form-control shadow-none" th:field="*{insurance_price}" required placeholder="insurance price" id="insurance_price">
+        <p th:if="${#fields.hasErrors('insurance_price')}"  class="text-danger">Invalid value</p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="promotion_threshold">Promotion Threshold($)</label>
+        <input type="text" class="form-control shadow-none" th:field="*{promotion_threshold}" required placeholder="promotion threshold" id="promotion_threshold">
+        <p th:if="${#fields.hasErrors('promotion_threshold')}"  class="text-danger">Invalid value</p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="promotion_discount">Promotion Discount(%)</label>
+        <input type="text" class="form-control shadow-none" th:field="*{promotion_discount}" required placeholder="promotion discount" id="promotion_discount">
+        <p th:if="${#fields.hasErrors('promotion_discount')}"  class="text-danger">Invalid value</p>
+    </div>
+    <button class="btn btn-primary" type="submit">Save</button>
+</form>

@@ -1,0 +1,29 @@
+<form th:fragment="email" th:object="${emailSettings}" th:action="@{/admin/settings/email/update}" method="post">
+    <div class="mb-3">
+        <label class="form-label" for="host">Host</label>
+        <input type="text" class="form-control shadow-none" th:field="*{host}" placeholder="Host" required id="host">
+        <p th:if="${#fields.hasErrors('host')}" th:text="${#fields.errors('host')[0]}" class="text-danger"></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="port">Port</label>
+        <input type="number" class="form-control shadow-none" th:field="*{port}" placeholder="Port" required id="port">
+        <p th:if="${#fields.hasErrors('port')}" th:text="${#fields.errors('port')[0]}" class="text-danger"></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="username">Username</label>
+        <input type="text" class="form-control shadow-none" th:field="*{username}" placeholder="Username" required id="username">
+        <p th:if="${#fields.hasErrors('username')}" th:text="${#fields.errors('username')[0]}" class="text-danger"></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="password">Password</label>
+        <input type="password" class="form-control shadow-none" th:field="*{password}" placeholder="Password" required id="password">
+        <p th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')[0]}" class="text-danger"></p>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="encryption">Encryption</label>
+        <input type="text" class="form-control shadow-none" th:field="*{encryption}" placeholder="Encryption" required id="encryption">
+        <p th:if="${#fields.hasErrors('encryption')}" th:text="${#fields.errors('encryption')[0]}" class="text-danger"></p>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save Settings</button>
+</form>

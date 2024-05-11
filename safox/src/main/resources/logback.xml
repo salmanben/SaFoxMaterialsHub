@@ -1,0 +1,14 @@
+<configuration>
+    <appender name="fileAppender" class="ch.qos.logback.core.FileAppender">
+        <file>logs/safox.log</file> 
+        <encoder>
+            <pattern>%date [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <logger name="com.example.demo.controller.admin.CategoryController" level="ERROR" additivity="false">
+        <appender-ref ref="fileAppender"/>
+    </logger>
+    <root level="OFF">
+        <appender-ref ref="fileAppender"/>
+    </root>
+</configuration>

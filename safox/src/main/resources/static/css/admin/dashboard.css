@@ -1,0 +1,123 @@
+a.add-element-link {
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+.search {
+    width: 230px !important
+}
+
+.search input {
+    font-size: 15px;
+}
+
+.search a {
+    padding: 5px !important;
+}
+
+.search i {
+    pointer-events: none;
+}
+
+table td img {
+    width: 70px;
+}
+
+table td {
+    vertical-align: middle;
+}
+
+form label {
+    font-size: 14px;
+    position: relative;
+    top: 7px;
+    color: grey
+}
+
+textarea {
+    resize: none;
+    height: 100px;
+}
+
+
+/** Show **/
+
+.invoice {
+    background-color: #ffffff;
+    border: solid 1px #ddd;
+}
+
+
+/* profile */
+
+.card-header h5 {
+    position: relative;
+    top: 5px
+}
+
+
+/* dashboard */
+
+.today-s-statistic>div div {
+    color: #383c4c;
+}
+
+.today-s-statistic div h6 {
+    font-size: 20px;
+    margin-top: 6px;
+    position: relative;
+    top: 4px
+}
+
+.today-s-statistic div span {
+    font-size: 14px;
+}
+
+.today-s-statistic div i {
+    color: white;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.today-s-statistic>div:first-child {
+    background-color: #ffe2e6;
+}
+
+.today-s-statistic>div:first-child i {
+    background-color: #fb7491
+}
+
+.today-s-statistic>div:nth-child(2) {
+    background-color: #fff4de;
+}
+
+.today-s-statistic>div:nth-child(2) i {
+    background-color: #fedbd2
+}
+
+.today-s-statistic>div:nth-child(3) {
+    background-color: #dcfce7;
+}
+
+.today-s-statistic>div:nth-child(3) i {
+    background-color: #3cd956
+}
+
+.today-s-statistic>div:last-child {
+    background-color: #f4e8ff;
+}
+
+.today-s-statistic>div:last-child i {
+    background-color: #c288ff
+}
+
+
+/* report */
+
+.report-file-type {
+    height: 100px;
+}

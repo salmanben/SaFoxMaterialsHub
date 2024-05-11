@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
+    <link rel="stylesheet" th:href="@{/css/client/layout.css}">
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,700&family=Nunito:ital,wght@0,400;0,500;0,600;1,300;1,600&display=swap" rel="stylesheet">
+    <link rel="icon" th:href="@{/img/safox_logo.png}">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- bootstrap 5-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- toastr css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+    <!-- js -->
+    <script defer th:src="@{/js/client/layout.js}"></script>
+    <script defer th:src="@{/js/client/profile.js}"></script>
+    <title>Reservation | show</title>
+  </head>
+  <body>
+    <div th:replace="client/layout/header::header"></div>
+    <div th:replace="client/layout/nav::nav"></div>
+    <div class="box-bg">
+      <img th:src="@{/img/box-bg.jpg}" class="img-fluid" alt="">
+    </div>
+    <div class="container-fluid mt-4 mb-5 px-2 px-lg-5 main">
+      <div class="card">
+        <div class="card-body">
+          <div class="content-printed">
+            <div class="row">
+              <div class="col-12 col-md-6">
+                <h4 class="border-bottom text-center">Customer</h4>
+                <div class="mt-3">
+                  <p>
+                    <span class="fw-bold">Name</span>: <span class="ms-2" th:text="${reservation.client.name}"></span>
+                  </p>
+                  <p>
+                    <span class="fw-bold">Email</span>: <span class="ms-2" th:text="${reservation.client.email}"></span>
+                  </p>
+                  <p>
+                    <span class="fw-bold">Phone</span>: <span class="ms-2" th:text="${reservation.client.phone}"></span>
+                  </p>
+                  <p>
+                    <span class="fw-bold">Address</span>: <span class="ms-2" th:text="${reservation.client.address}"></span>
+                  </p>
+                </div>
+              </div>
+              <div class="col-12 col-md-6 mt-2 mt-md-0">
+                <h4 class="border-bottom text-center">Details</h4>
+                <div class="mt-3">
+                  <p>
+                    <span class="fw-bold">Insurance</span>: <span th:text="${reservation.insurance == true ? 'Yes' : 'No'}" th:class="${reservation.insurance == true ? 'badge  bg-success ms-2' : 'badge  bg-danger ms-2'}"></span>
+                  </p>
+                  <p>
+                    <span class="fw-bold">Start At</span>: <span class="ms-2" th:text="${reservation.start_date}"></span>
+                  </p>
+                  <p>
+                    <span class="fw-bold">End At</span>: <span class="ms-2" th:text="${reservation.end_date}"></span>
+                  </p>
+                  <p>
+                    <span class="fw-bold">Shipping Address</span>: <span class="ms-2" th:text="${reservation.shipping_address}">
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="mt-5">
+              <h4>Materiels</h4>
+              <div class="table text-center   table-responsive-md">
+                <table class="table table-bordered  table-striped table-hove mt-3r">
+                  <thead>
+                    <tr>
+                      <th>Id</th>
+                      <th>Image</th>
+                      <th>Name</th>
+                      <th>Price By Day</th>
+                      <th>Shipped Price</th>
+                      <th>Quantity</th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-lignes">
+                    <tr th:each="reservedMaterial : ${reservationMaterials}">
+                      <td th:text="${reservedMaterial.material.id}"></td>
+                      <td>
+                        <img th:src="${'/upload/'+reservedMaterial.material.image}" alt="" class="img-fluid rounded" style="width: 70px;">
+                      </td>
+                      <td th:text="${reservedMaterial.material.name}"></td>
+                      <td>
+                        <span class="fw-bold" th:text="${'$'+reservedMaterial.material.price_by_day}"></span>
+                      </td>
+                      <td>
+                        <span class="fw-bold" th:text="${'$'+reservedMaterial.material.shipped_price}"></span>
+                      </td>
+                      <td>
+                        <span class="fw-bold" th:text="${reservedMaterial.quantity}"></span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="invoice mt-5  rounded p-2">
+              <div class="d-flex gap-4 mb-2">
+                <p>
+                  <span class="fw-bold">Subtotal</span>: <span class="ms-2 fw-bold" th:text="${'$'+reservation.subtotal}"></span>
+                </p>
+                <p>
+                  <span class="fw-bold">Discount</span>: <span class="ms-2 fw-bold" th:text="${'$'+reservation.discount}"></span>
+                </p>
+              </div>
+              <div class="d-flex gap-4 mb-2">
+                <p>
+                  <span class="fw-bold">Shipping</span>: <span class="ms-2 fw-bold" th:text="${'$'+reservation.shipping_cost}"></span>
+                </p>
+                <p>
+                  <span class="fw-bold">Insurance</span>: <span class="ms-2 fw-bold" th:text="${'$'+insurance}"></span>
+                </p>
+              </div>
+              <p class="mb-0">
+                <span class="fw-bold fs-5">Total <span class="ms-2 fw-bold" th:text="${'$'+reservation.total}"></span>
+              </p>
+            </div>
+          </div>
+          <div class="mt-5 text-end">
+            <button class="btn btn-warning text-white " onclick="printDoc()">
+              <i class="fa-solid fa-print me-2"></i>Print </button>
+          </div>
+        </div>
+      </div>
+    </div>  
+      <div th:replace="client/layout/footer::footer"></div>
+      <!-- swiper -->
+      <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+      <!-- jquery -->
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+      <!-- toastr js -->
+      <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+  </body>
+</html>

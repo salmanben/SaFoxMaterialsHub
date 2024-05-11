@@ -1,0 +1,24 @@
+<form th:fragment="stripe" th:object="${stripeSettings}" th:action="@{/admin/settings/stripe/update}" method="post" class="col-lg-8">
+    <div class="mb-3">
+        <label class="form-label" for="clientId">Stripe Client ID</label>
+        <input type="text" class="form-control shadow-none" name="clientId" th:field="*{clientId}" required placeholder="Client ID" id="clientId" value="">
+        <p th:if="${#fields.hasErrors('clientId')}" th:text="${#fields.errors('clientId')[0]}" class="text-danger"></p>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="clientSecret">Stripe Secret Key</label>
+        <input type="text" class="form-control shadow-none" name="clientSecret" th:field="*{clientSecret}" required placeholder="Secret Key" id="clientSecret" value="">
+        <p th:if="${#fields.hasErrors('clientSecret')}" th:text="${#fields.errors('clientSecret')[0]}" class="text-danger"></p>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="mode">Mode</label>
+        <select class="form-select form-control shadow-none" th:field="*{mode}" name="mode" required aria-label="Default select example">
+            <option value="sandbox">Sandbox</option>
+            <option value="live">Live</option>
+        </select>
+        <p th:if="${#fields.hasErrors('mode')}" th:text="${#fields.errors('mode')[0]}" required class="text-danger"></p>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save Settings</button>
+</form>

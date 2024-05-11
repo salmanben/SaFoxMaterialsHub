@@ -1,0 +1,114 @@
+
+
+
+.promotion{
+    padding: 15px;
+    border: solid 3px var(--main-color);
+    border-radius: 20px;
+}
+
+.promotion p{
+    font-size:20px !important;
+    font-weight: 500;
+}
+.discount{
+    height: 60px;
+}
+
+.about-us{
+    background-color:  var(--main-color);
+}
+
+.about-us img{
+    height: 100% !important;
+    width: 100%;
+
+}
+
+.about-us-text  h6{
+    color: #ffffff;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+    margin-bottom: 10px;
+}
+.about-us-text h6 span{
+    width: 25px;
+    height: 25px;
+    border: solid 2px #ffffff;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+.about-us-text p{
+    line-height: 1.6;
+
+}
+
+.swiper-slide{
+    height: 450px;
+    cursor: pointer;
+    transition: 0.3s;
+    border:solid 5px #ffffff;
+}
+.swiper-slide:hover{
+    border:solid 5px var(--main-color);
+}
+.swiper-slide img{
+    height: 250px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+.swiper-slide h4{
+    color: black
+}
+
+
+
+
+.banner{
+    height: 190px;
+    width: 100%;
+    object-fit: fill;
+}
+.banner-div{
+    position: relative;
+}
+
+.banner-div .text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    font-weight: 600;
+    z-index: 100;
+    text-align: center;
+    font-size: 24px;
+
+}
+
+.banner-div .text h1{
+    font-size: 29px !important;
+}
+
+.banner-div .text p{
+    color:#ffffff;
+    font-size: 20px;
+    background-color: var(--main-color) !important;
+    padding: 7px;
+    border-radius: 5px;
+    opacity: 0.9;
+
+}
+
+
+
+@media(max-width:450px){
+   .discount{
+    display: none;
+   }
+}
+
+

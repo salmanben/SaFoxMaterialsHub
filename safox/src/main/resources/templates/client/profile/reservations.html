@@ -1,0 +1,38 @@
+<div th:fragment="reservations">
+    <div class="d-flex align-items-center justify-content-between gap-2 flex-wrap mb-3">
+        <div class="search position-relative ms-auto">
+            <i class="fa-solid fa-magnifying-glass position-absolute top-50 ms-1 translate-middle-y"></i>
+            <input type="search" onkeyup="search()" onsearch="resetSearch()" placeholder="Search by id..." class="form-control shadow-none ps-4" name="" id="">
+        </div>
+    </div>
+    <div class="table text-center  table-responsive-md">
+        <table class="table table-bordered table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Total</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody class="table-lignes">
+                <tr th:each="reservation : ${reservations}" th:id="${reservation.id}">
+                    <td th:text="${reservation.id}"></td>
+                    <td><span class="fw-bold"  th:text="${'$'+reservation.total}"></span></td>
+                    <td th:text="${reservation.start_date}"></td>
+                    <td th:text="${reservation.end_date}"></td>
+                    <td>
+                        <span th:text="${reservation.status}" th:class="${reservation.status == 'accepted' ? 'badge bg-success' : (reservation.status == 'refused' ? 'badge bg-danger' : 'badge bg-secondary')}"></span>
+                        <td>
+                        <a th:href="@{/client/reservations/show/{id}(id=${reservation.id})}" class="btn btn-info me-2"><i class="fa-solid fa-eye text-white"></i></a>
+                    </td>
+                </tr>
+               
+            </tbody>
+        </table>
+
+
+    </div>
+</div>

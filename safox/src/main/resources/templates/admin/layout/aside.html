@@ -1,0 +1,18 @@
+<aside th:fragment="aside" class="position-fixed top-0  h-100 px-2 py-4">
+    <div>
+        <h3 class="mb-4 text-center"><img th:src="@{/img/safox_logo.png}" class="me-2" alt=""><span class="text-warning">Sa</span><span class="text-primary">FOX</span>
+        </h3>
+        <ul class="list-unstyled">
+            <li class="mb-2 dashboard"><a class="d-flex align-items-center  p-2 rounded" th:href="@{/admin/dashboard}"><i class="fa-solid fa-gauge me-2"></i><span>Dashboard</span></a></li>
+            <li class="mb-2 categories"><a class="d-flex align-items-center  p-2 rounded" th:href="@{/admin/categories}"><i class="fa-solid fa-list me-2"></i> <span>Categories</span></a></li>
+            <li class="mb-2 materials"><a class="d-flex align-items-center  p-2 rounded" th:href="@{/admin/materials}"><i class="fa-solid fa-trowel-bricks me-2"></i> <span>Materials</span></a></li>
+            <li class="mb-2 reservations"><a class="d-flex align-items-center  p-2 rounded"  th:href="@{/admin/reservations}"><i class="fa-solid fa-bookmark me-2"></i> <span>Reservations</span></a></li>
+            <li class="mb-2 transactions"><a class="d-flex align-items-center  p-2 rounded" th:href="@{/admin/transactions}"><i class="fa-solid fa-exchange-alt me-2"></i> <span>Transactions</span></a></li>
+            <li class="mb-2 users"><a class="d-flex align-items-center  p-2 rounded" th:href="@{/admin/clients}"><i class="fa-solid fa-users me-2"></i> <span>Users</span></a></li>
+            <li class="mb-2 reports"><a class="d-flex align-items-center  p-2 rounded" th:href="@{/admin/reports}"><i class="fa-solid fa-chart-line me-2"></i> <span>Reports</span></a></li>
+            <li class="mb-2 settings">
+                <a class="d-flex align-items-center  p-2 rounded" th:href="@{/admin/settings}"><i class="fa-solid fa-cog me-2"></i> <span>Settings</span></a>
+            </li>
+        </ul>
+    </div>
+</aside>

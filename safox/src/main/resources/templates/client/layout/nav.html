@@ -1,0 +1,9 @@
+<nav fragment="nav">
+    <div class="container-fluid  px-2 px-md-5 py-1">
+      <ul class="d-flex justify-content-end nav d-flex justify-content-between">
+        <li th:each="category : ${categories}" class="nav-item">
+          <a th:href="@{/material?cat={id}(id=${category.id})}" th:class="${#strings.toString(param.cat) ==  #strings.toString(category.id) ? 'nav-link text-body active' : 'nav-link text-body'}"   th:text="${category.name}"></a>
+        </li>
+      </ul>
+    </div>
+</nav>

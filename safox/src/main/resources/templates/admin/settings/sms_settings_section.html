@@ -1,0 +1,21 @@
+<form th:fragment="sms" th:object="${smsSettings}" th:action="@{/admin/settings/sms/update}" method="post" class="col-lg-8">
+    <div class="mb-3">
+        <label class="form-label" for="accountSid">Account SID</label>
+        <input type="text" class="form-control shadow-none" name="accountSid" th:field="*{accountSid}" required placeholder="Account SID" id="accountSid" value="">
+        <p th:if="${#fields.hasErrors('accountSid')}" th:text="${#fields.errors('accountSid')[0]}" class="text-danger"></p>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="authToken">Auth Token</label>
+        <input type="text" class="form-control shadow-none" name="authToken" th:field="*{authToken}" required placeholder="Auth Token" id="authToken" value="">
+        <p th:if="${#fields.hasErrors('authToken')}" th:text="${#fields.errors('authToken')[0]}" class="text-danger"></p>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label" for="fromNumber">From Number</label>
+        <input type="text" class="form-control shadow-none" name="fromNumber" th:field="*{fromNumber}" required placeholder="From Number" id="fromNumber" value="">
+        <p th:if="${#fields.hasErrors('fromNumber')}" th:text="${#fields.errors('fromNumber')[0]}" class="text-danger"></p>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Save Settings</button>
+</form>
