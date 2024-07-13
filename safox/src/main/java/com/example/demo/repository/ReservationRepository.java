@@ -44,7 +44,7 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
     List<Reservation> monthReservations(@Param("x") int x);
 
     
-    @Query(value = "SELECT SUM(total) FROM reservations WHERE client = :x")
+    @Query(value = "SELECT IFNULL(SUM(total), 0) FROM reservations WHERE client = :x")
     public double getTotal(@Param("x") User x);
 
     List<Reservation> findByClient(User client, Sort sort);
