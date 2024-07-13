@@ -63,7 +63,7 @@ public class ReservationController {
     public String trated_reservations(Model model,  @RequestParam(defaultValue = "0") int page) {
         // pagination with sorting
         Pageable pageable = PageRequest.of(page, 10, Sort.by("id").descending());
-        Page<Reservation> reservations = reservationService.getAllNotTreatedReservations(pageable);
+        Page<Reservation> reservations = reservationService.getAllTreatedReservations(pageable);
         List<Reservation> fetchedReservations = reservations.getContent();
         int totalPages = reservations.getTotalPages();
         model.addAttribute("totalPages", totalPages);
