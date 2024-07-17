@@ -7,6 +7,8 @@ var discount = document.querySelector(".discount-value");
 var insurance = document.querySelector(".insurance-value");
 
 
+
+
 var startDate = document.getElementById("start-date");
 var endDate = document.getElementById("end-date");
 startDate.addEventListener("change", updateDurree)
@@ -131,7 +133,7 @@ shippingMethod.forEach(function (element) {
     element.addEventListener("change", function () {
 
         var shipping_status
-        if(element.value == "safox-shipping"){
+        if(element.value == "alixa-shipping"){
             shippingAddress.classList.add("active");
             shipping_status = 1
         }
@@ -155,14 +157,19 @@ shippingMethod.forEach(function (element) {
 })
 
 var insuranceCheck = document.querySelectorAll("input[name='insurance']");
+var insurancePrice = insuranceCheck[0].value
 insuranceCheck.forEach(function (element) {
     element.addEventListener("change", function () {
         var insurance_status
         if(element.value == 0){
             insurance_status = 0
+            insurance.textContent = "$" + 0
+
         }
         else{
             insurance_status = 1
+            insurance.textContent = "$" + insurancePrice
+
         }
         fetch(`/cart/update-insurance?insurance=${insurance_status}`)
         .then(response => response.json())
@@ -172,7 +179,6 @@ insuranceCheck.forEach(function (element) {
                 shipping.textContent = "$" + data.invoice.shipping;
                 subtotal.textContent = "$" + data.invoice.subtotal;
                 discount.textContent = "$" + data.invoice.discount;
-                insurance.textContent = "$" + data.invoice.insurance;
             }
         })
 
